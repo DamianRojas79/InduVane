@@ -6,3 +6,5 @@
 
 # No ignorar .gitignore
 !tienda_docker/
+!tienda_docker/docker-compose.yml
+
