@@ -1,0 +1,53 @@
+services:
+  wordpress:
+    image: wordpress:6.6.2-php8.2-apache   # Imagen oficial de WordPress
+    container_name: induvane-app
+    ports:
+      - "9003:80"
+    environment:
+      WORDPRESS_DB_HOST: ${WORDPRESS_DB_HOST}
+      WORDPRESS_DB_NAME: ${WORDPRESS_DB_NAME}
+      WORDPRESS_DB_USER: ${WORDPRESS_DB_USER}
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
+    volumes:
+      - ${VOLUMEN_APP}:/var/www/html   # Se guarda el código de WordPress y plugins
+    networks:
+      - network-tiendaprueba
+    restart: always
+
+  mysql:
+    image: mysql:8
+    container_name: induvane-base
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - ${VOLUMEN_BASE}:/var/lib/mysql
+    networks:
+      - network-tiendaprueba
+    restart: always
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: induvane-phpmyadmin
+    environment:
+      PMA_HOST: ${PMA_HOST}
+      PMA_USER: ${PMA_USER}
+      PMA_PASSWORD: ${PMA_PASSWORD}
+    ports:
+      - "8000:80"
+    networks:
+      - network-tiendaprueba
+    restart: always
+
+volumes:
+  mysql_data:
+  wordpress_data:
+
+networks:
+  network-tiendaprueba:
+    driver: bridge
