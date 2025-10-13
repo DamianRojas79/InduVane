@@ -1,0 +1,8 @@
+# Ignorar todo
+*
+
+# No ignorar .gitignore
+!.gitignore
+
+# No ignorar .gitignore
+!tienda_docker/
