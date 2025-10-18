@@ -8,3 +8,9 @@
 !tienda_docker/
 !tienda_docker/docker-compose.yml
 
+# No ignorar plugin induvane-custom-acces-login
+!tienda/
+!tienda/wp-content/
+!tienda/wp-content/plugins/
+!tienda/wp-content/plugins/induvane-custom-acces-login/
+!tienda/wp-content/plugins/induvane-custom-acces-login/**
