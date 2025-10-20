@@ -12,5 +12,5 @@
 !tienda/
 !tienda/wp-content/
 !tienda/wp-content/plugins/
-!tienda/wp-content/plugins/induvane-custom-acces-login/
-!tienda/wp-content/plugins/induvane-custom-acces-login/**
+!tienda/wp-content/plugins/induvane-custom-control-session/
+!tienda/wp-content/plugins/induvane-custom-control-session/**
