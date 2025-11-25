@@ -1,0 +1,28 @@
+/*
+Theme Name: StoreFront Child
+Template: storefront
+Description: Tema hijo de Storefront
+Author: Damian Rojas
+Version: 1.0
+*/
+
+/* Puedes agregar aquí tus estilos CSS personalizados */
+
+ @import url("../storefront/style.css");
+
+
+
+.button {
+    border-radius: 15px;
+    background-color: #f200da;
+
+}
+
+.added_to_cart{
+    border-radius: 15px;
+
+}
+
+.site-search .widget_product_search form input[type=search]{
+    border-radius: 15px;
+ }
