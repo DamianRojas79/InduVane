@@ -14,3 +14,8 @@
 !tienda/wp-content/plugins/
 !tienda/wp-content/plugins/induvane-custom-control-session/
 !tienda/wp-content/plugins/induvane-custom-control-session/**
+
+# No ignorar tema hijo Storefront
+!tienda/wp-content/themes/
+!tienda/wp-content/themes/storefront-child/
+!tienda/wp-content/themes/storefront-child/**
