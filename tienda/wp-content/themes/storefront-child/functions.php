@@ -78,4 +78,29 @@ function induvane_header_destacado() {
 	<?php
 }
 
+/**
+ * Quitar imagen destacada del encabezado solo en la página "Sobre mi".
+ */
+add_action( 'wp', 'induvane_sobre_mi_sin_imagen_destacada', 25 );
+
+function induvane_sobre_mi_sin_imagen_destacada() {
+	if ( ! is_page( array( 'sobre-mi', 'sobre mi', 'sobre mí' ) ) ) {
+		return;
+	}
+
+	// Reemplaza el header de Storefront por uno sin imagen destacada para esta página.
+	remove_action( 'storefront_page', 'storefront_page_header', 10 );
+	add_action(
+		'storefront_page',
+		function () {
+			?>
+			<header class="entry-header">
+				<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+			</header>
+			<?php
+		},
+		10
+	);
+}
+
 ?>
