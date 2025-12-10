@@ -65,7 +65,14 @@ function induvane_header_destacado() {
 		<div class="induvane-header-copy">
 			<p class="induvane-header-eyebrow">Bienvenida a InduVane 💕</p>
 			<p class="induvane-header-title">Moda que te acompaña todos los días.</p>
-			<p class="induvane-header-subtitle">Entrá y descubrí lo que tenemos para vos.</p>
+			<p class="induvane-header-subtitle"> 
+			<a href="http://localhost:9003/tienda/" style="text-decoration: none; color: inherit;">
+				Entrá y descubrí lo que tenemos para vos.
+			</a>
+		
+		
+			</p>
+			
 		</div>
 	</div>
 	<?php
