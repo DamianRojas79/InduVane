@@ -103,4 +103,125 @@ function induvane_sobre_mi_sin_imagen_destacada() {
 	);
 }
 
+
+/**
+ * Shortcode: [induvane_carrusel_ultimos]
+ * - 3 columnas visibles
+ * - Últimos 5 productos
+ * - Solo imagen + nombre
+ * - Autoplay cada 5s (loop)
+ */
+add_shortcode('induvane_carrusel_ultimos', function($atts){
+  if ( ! class_exists('WooCommerce') ) return '';
+
+  $a = shortcode_atts([
+    'titulo' => 'Últimos ingresos',
+  ], $atts);
+
+  $q = new WP_Query([
+    'post_type'      => 'product',
+    'post_status'    => 'publish',
+    'posts_per_page' => 5,
+    'orderby'        => 'date',
+    'order'          => 'DESC',
+  ]);
+
+  if ( ! $q->have_posts() ) return '';
+
+  $uid = 'induvane_car_' . wp_generate_password(6, false, false);
+
+  ob_start(); ?>
+  <section class="induvane-carousel" id="<?php echo esc_attr($uid); ?>">
+    <div class="induvane-carousel__head">
+      <h2 class="induvane-carousel__title"><?php echo esc_html($a['titulo']); ?></h2>
+    </div>
+
+    <div class="induvane-carousel__viewport" aria-label="Carrusel de productos">
+      <div class="induvane-carousel__track">
+        <?php while($q->have_posts()): $q->the_post(); ?>
+          <article class="induvane-carousel__item">
+            <a class="induvane-carousel__img" href="<?php the_permalink(); ?>">
+              <?php
+                if ( has_post_thumbnail() ) {
+                  echo get_the_post_thumbnail(get_the_ID(), 'woocommerce_thumbnail');
+                }
+              ?>
+            </a>
+            <div class="induvane-carousel__body">
+              <h3 class="induvane-carousel__name">
+                <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+              </h3>
+            </div>
+          </article>
+        <?php endwhile; wp_reset_postdata(); ?>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function(){
+    const root = document.getElementById('<?php echo esc_js($uid); ?>');
+    if(!root) return;
+
+    const viewport = root.querySelector('.induvane-carousel__viewport');
+    const track    = root.querySelector('.induvane-carousel__track');
+    const items    = root.querySelectorAll('.induvane-carousel__item');
+    if(!viewport || !track || items.length < 2) return;
+
+    function getGap(){
+      const style = getComputedStyle(track);
+      return parseFloat(style.columnGap || style.gap || 0) || 0;
+    }
+
+    function slideAmount(){
+      const item = items[0];
+      const gap  = getGap();
+      return item.getBoundingClientRect().width + gap;
+    }
+
+    let index = 0;
+
+    function visibleCount(){
+      // Si cambia responsive, el "visible" cambia (3/2/1)
+      const w = window.innerWidth;
+      if (w <= 520) return 1;
+      if (w <= 900) return 2;
+      return 3;
+    }
+
+    function next(){
+      const amt = slideAmount();
+      const vis = visibleCount();
+      const maxIndex = items.length - vis;
+      if (maxIndex <= 0) return;
+
+      index++;
+      if (index > maxIndex) index = 0;
+      viewport.scrollTo({ left: index * amt, behavior: 'smooth' });
+    }
+
+    let timer = setInterval(next, 5000);
+
+    // Evita pelear con el usuario si hace scroll manual
+    function pause(){ clearInterval(timer); }
+    function resume(){ clearInterval(timer); timer = setInterval(next, 5000); }
+
+    viewport.addEventListener('pointerdown', pause);
+    viewport.addEventListener('pointerup', resume);
+    viewport.addEventListener('mouseenter', pause);
+    viewport.addEventListener('mouseleave', resume);
+    viewport.addEventListener('touchstart', pause, {passive:true});
+    viewport.addEventListener('touchend', resume);
+
+    window.addEventListener('resize', () => {
+      const amt = slideAmount();
+      viewport.scrollTo({ left: index * amt, behavior: 'auto' });
+    });
+  })();
+  </script>
+  <?php
+  return ob_get_clean();
+});
+
+
 ?>
