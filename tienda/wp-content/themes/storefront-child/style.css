@@ -43,7 +43,7 @@ Version: 1.0
     font-size: 0.98rem;
     line-height: 1.5;
     margin: 0 0 10px;
-    color: #fffcfc;
+    color: #222020;
 }
 
 /* Header personalizado InduVane (solo home) */
@@ -108,3 +108,9 @@ Version: 1.0
  .home .induvane-header-subtitle:hover {
     color: #e67a9e; 
  }
+
+/* Menu principal: texto negro y ligeramente más grande */
+.main-navigation ul li a {
+    color: #111 !important;
+    font-size: 1.05rem;
+}
