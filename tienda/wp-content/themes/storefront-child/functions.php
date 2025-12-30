@@ -229,7 +229,7 @@ add_filter(
 	'gettext',
 	function ( $translated, $text, $domain ) {
 		if ( 'storefront' === $domain && 'Built with WooCommerce' === $text ) {
-			return 'Construido por Damian Rojas';
+			return 'Autor Damian C. Rojas';
 		}
 
 		return $translated;
@@ -237,6 +237,60 @@ add_filter(
 	20,
 	3
 );
+
+
+// Iconos de redes sociales en el pie y crédito custom.
+add_action(
+	'after_setup_theme',
+	function () {
+		remove_action( 'storefront_footer', 'storefront_credit', 20 );
+		add_action( 'storefront_footer', 'induvane_footer_credit', 20 );
+	},
+	20
+);
+
+function induvane_footer_credit() {
+	$links_output = '';
+
+	if ( apply_filters( 'storefront_credit_link', true ) ) {
+		if ( function_exists( 'storefront_is_woocommerce_activated' ) && storefront_is_woocommerce_activated() ) {
+			$links_output .= '<a href="https://woocommerce.com" target="_blank" title="' . esc_attr__( 'WooCommerce - The Best eCommerce Platform for WordPress', 'storefront' ) . '" rel="noreferrer nofollow">' . esc_html__( 'Built with WooCommerce', 'storefront' ) . '</a>.';
+		} else {
+			$links_output .= '<a href="https://woocommerce.com/products/storefront/" target="_blank" title="' . esc_attr__( 'Storefront -  The perfect platform for your next WooCommerce project.', 'storefront' ) . '" rel="noreferrer nofollow">' . esc_html__( 'Built with Storefront', 'storefront' ) . '</a>.';
+		}
+	}
+
+	if ( apply_filters( 'storefront_privacy_policy_link', true ) && function_exists( 'the_privacy_policy_link' ) ) {
+		$separator    = '<span role="separator" aria-hidden="true"></span>';
+		$links_output = get_the_privacy_policy_link( '', ( ! empty( $links_output ) ? $separator : '' ) ) . $links_output;
+	}
+
+	$links_output = apply_filters( 'storefront_credit_links_output', $links_output );
+	?>
+	<div class="site-info induvane-site-info">
+		<div class="induvane-social" aria-label="Redes sociales">
+			<a href="https://www.facebook.com/" class="induvane-social__link" target="_blank" rel="noreferrer noopener" aria-label="Facebook">
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/facebook-brands-solid-full.svg' ); ?>" alt="" aria-hidden="true" />
+			</a>
+			<a href="https://www.instagram.com/" class="induvane-social__link" target="_blank" rel="noreferrer noopener" aria-label="Instagram">
+				<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/instagram-brands-solid-full.svg' ); ?>" alt="" aria-hidden="true" /> 
+			</a>
+			<a href="https://wa.me/" class="induvane-social__link" target="_blank" rel="noreferrer noopener" aria-label="WhatsApp">
+		  	<img src="<?php echo esc_url( get_stylesheet_directory_uri() . '/images/whatsapp-brands-solid-full.svg' ); ?>" alt="" aria-hidden="true" /> 	
+      </a>
+		</div>
+
+		<div class="induvane-credit-text">
+			<?php echo esc_html( apply_filters( 'storefront_copyright_text', '&copy; ' . get_bloginfo( 'name' ) . ' ' . gmdate( 'Y' ) ) ); ?>
+
+			<?php if ( ! empty( $links_output ) ) { ?>
+				<span class="induvane-credit-separator" aria-hidden="true">•</span>
+				<?php echo wp_kses_post( $links_output ); ?>
+			<?php } ?>
+		</div>
+	</div>
+	<?php
+}
 
 
 ?>
