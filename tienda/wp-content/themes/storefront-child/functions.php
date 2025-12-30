@@ -224,4 +224,19 @@ add_shortcode('induvane_carrusel_ultimos', function($atts){
 });
 
 
+// Personalización del crédito del pie de página para mostrar el nombre del autor.
+add_filter(
+	'gettext',
+	function ( $translated, $text, $domain ) {
+		if ( 'storefront' === $domain && 'Built with WooCommerce' === $text ) {
+			return 'Construido por Damian Rojas';
+		}
+
+		return $translated;
+	},
+	20,
+	3
+);
+
+
 ?>
