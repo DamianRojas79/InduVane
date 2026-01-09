@@ -1,6 +1,6 @@
 ## InduVane - Tienda Virtual
 
-
+![image alt](https://github.com/DamianRojas79/InduVane/blob/main/images_git/induVane2.png)
 
 ![Status](https://img.shields.io/badge/STATUS-EN%20DESARROLLO-green)
 ![License](https://img.shields.io/badge/License-MIT-green.svg)
@@ -85,26 +85,21 @@ El proyecto incluye:<br>
 ![Badge en Desarollo](https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green)
 
 
-  
-
 ## Características de la aplicación y demostración
-
   
 
 🔨 **Funcionalidades del proyecto**
 
 **👤 Registro de Usuarios** <br>
 
-
-
 El sistema permite el registro de usuarios públicos, habilitando que cualquier persona pueda crear una cuenta en la tienda.
 El proceso de registro y acceso está gestionado mediante el plugin LoginPress, el cual fue configurado y personalizado para mantener coherencia con la identidad visual de InduVane.
 
-
-Imagen
-
-
-
+<img 
+  src="https://github.com/DamianRojas79/InduVane/blob/main/images_git/registro_usuario.png"
+  alt="Landing Page InduVane"
+  width="40%">
+<br><br>
 
 **🔐 InduVane Custom Control Sesión (Plugin)**
 
@@ -117,9 +112,9 @@ Esta funcionalidad mejora la gestión de sesiones y evita comportamientos no des
 Versión: 1.0 <br>
 Autor: Damian Rojas<br>
 
-Imagen
+![image alt](https://github.com/DamianRojas79/InduVane/blob/main/images_git/plugin-control-sesion.png)<br><br>
 
-
+<br><br>
 
 
 **🎨 Storefront Child (Tema Hijo)**
@@ -128,19 +123,24 @@ Se creó el tema hijo Storefront Child con el objetivo de escalar y personalizar
 
 El tema hijo concentra los estilos personalizados, ajustes de diseño y funcionalidades propias, asegurando una estructura ordenada, mantenible y preparada para la evolución del sistema.
 
-Imagen <br><br>
+![image alt](https://github.com/DamianRojas79/InduVane/blob/main/images_git/tema-storeFront-child.png)
 
+<br><br>
 
 **📄 Landing Page de Registro**
 
 Se desarrolló una landing page orientada a la conversión, enfocada en el registro de nuevos usuarios en la tienda, utilizando el plugin SeedProd. La página fue diseñada para dirigir al visitante de forma directa al alta de cuenta, priorizando llamados a la acción claros y una estética alineada con la identidad de InduVane.
 
+<img 
+  src="https://github.com/DamianRojas79/InduVane/blob/main/images_git/landingpage1.png"
+  alt="Landing Page InduVane"
+  width="60%">
+<img 
+  src="https://github.com/DamianRojas79/InduVane/blob/main/images_git/landingpage2.png"
+  alt="Landing Page InduVane"
+  width="60%">
 
-Imagen <br><br>
-
-
-
-
+<br><br>
 
 
 **🧩 Shortcode – Carrusel de últimos productos**
@@ -160,7 +160,9 @@ El shortcode puede insertarse en cualquier página o sección mediante:
 [induvane_carrusel_ultimos]
 
 
+![image alt](https://github.com/DamianRojas79/InduVane/blob/main/images_git/shotcode-carrusel.png)
 
+<br><br>
 
 **🧩 Encabezado personalizado en página de Inicio**
 
@@ -169,10 +171,9 @@ En esta vista se reemplaza el menú principal estándar por un encabezado espec�
 
 Esta solución permite diferenciar visual y funcionalmente la página principal, mejorando la experiencia de navegación y el enfoque del contenido inicial.
 
+![image alt](https://github.com/DamianRojas79/InduVane/blob/main/images_git/header-home.png)
 
-Imagen <br><br>
-
-
+<br><br>
 
 **👤 Personalización de página Mi Cuenta**
 
@@ -180,14 +181,18 @@ Se implementó una función personalizada en WooCommerce que modifica la página
 Mediante el uso del filtro woocommerce_account_menu_items, se eliminan secciones no utilizadas (como Descargas) y se redefine el orden del menú para mejorar la usabilidad y la experiencia del usuario.
 
 
+![image alt](https://github.com/DamianRojas79/InduVane/blob/main/images_git/micuenta-personalizado.png)
+
+<br><br>
 
 **🦶 Personalización de pie de página (Footer)**
 
 Se implementó una personalización del footer en Storefront mediante filtros y acciones de WordPress.
 Se reemplazó el crédito por defecto utilizando gettext y remove_action/add_action, incorporando el autor del sitio y un bloque de iconos de redes sociales (Facebook, Instagram y WhatsApp), manteniendo compatibilidad con WooCommerce y accesibilidad básica.
 
+![image alt](https://github.com/DamianRojas79/InduVane/blob/main/images_git/pie-pagina.png)
 
-
+<br><br>
 
 ## Acceso y ejecución del proyecto
 **Requisitos**
