@@ -19,3 +19,7 @@
 !tienda/wp-content/themes/
 !tienda/wp-content/themes/storefront-child/
 !tienda/wp-content/themes/storefront-child/**
+
+# No ignorar carpeta images_git en la raiz del repo
+!images_git/
+!images_git/**
