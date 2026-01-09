@@ -2,6 +2,16 @@
 
 
 
+![Status](https://img.shields.io/badge/STATUS-EN%20DESARROLLO-green)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
+![Maintained](https://img.shields.io/badge/Maintained-Yes-brightgreen)
+
+![WordPress](https://img.shields.io/badge/WordPress-6.x-blue?logo=wordpress)
+![WooCommerce](https://img.shields.io/badge/WooCommerce-8.x-purple?logo=woocommerce)
+![PHP](https://img.shields.io/badge/PHP-8.x-blue?logo=php)
+![Docker](https://img.shields.io/badge/Docker-Ready-blue?logo=docker)
+![MySQL](https://img.shields.io/badge/MySQL-8.x-blue?logo=mysql)
+![Apache](https://img.shields.io/badge/Apache-2.4-red?logo=apache)
 
 
 ## Índice
